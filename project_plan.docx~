@@ -6,22 +6,11 @@ Data file supplied by Anders Andersson
 
 ./data/ryno_project/.~lock.P3764_P1456.LMO.indiv.MAGs.merged.raw_counts.tsv
 ./data/ryno_project/AF2-SCG present in each bin.tsv
-
-./data/ryno_project/LMO_time_series_Metadata_to_Barbel_mod.txt
-./data/ryno_project/P3764_P1456.LMO.indiv.MAGs.merged.raw_counts.tsv
-./data/ryno_project/reference_genomes.xlsx
-
-ID tags:
 ./data/ryno_project/LMO.indiv.MAGs.merged.COG.tsv
 ./data/ryno_project/LMO.indiv.MAGs.merged.EC.tsv
 ./data/ryno_project/LMO.indiv.MAGs.merged.PFAM.tsv
 ./data/ryno_project/LMO.indiv.MAGs.merged.TIGRFAM.tsv
-
-
-What needed: - 
-
-Scripts:
-I need to read in all data files
-
-
+./data/ryno_project/LMO_time_series_Metadata_to_Barbel_mod.txt
+./data/ryno_project/P3764_P1456.LMO.indiv.MAGs.merged.raw_counts.tsv
+./data/ryno_project/reference_genomes.xlsx
 
