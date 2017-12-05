@@ -12,18 +12,18 @@ file1 = '../P3764_P1456.LMO.indiv.MAGs.merged.raw_counts.tsv'
 
 #################Head of the whole of file1#################
 print(str(file1))
-df= pd.read_table(file1)
-#print(df.head())
+raw_df= pd.read_table(file1)
+#print(raw_df.head())
 
 #################Data info Code##################### 
-#print(df.index)
-#print(df.columns)
-#print(df.shape)
-#print(type(df))
-#print(type(df.index))
-#print(df.iloc[:5,:])   #First 5
-#print(df.iloc[-5:,:])  #Last 5
-#print(df.info())
+#print(raw_df.index)
+#print(raw_df.columns)
+#print(raw_df.shape)
+#print(type(raw_df))
+#print(type(raw_df.index))
+#print(raw_df.iloc[:5,:])   #First 5
+#print(raw_df.iloc[-5:,:])  #Last 5
+#print(raw_df.info())
 #print('\n')
 #print('\n')
 #print('\n')
@@ -31,13 +31,18 @@ df= pd.read_table(file1)
 ######################Function#################
 ######################Reading Column##########################
 
+out_df= raw_df.groupby('MAG')['Gene'].count()
+print(out_df)
 
+out_df.to_csv('../output_MAGGene_counts.csv')
 
+out2_df = raw_df.groupby('Gene')['MAG'].count()
 
+print(out2_df)
 
+out2_df.to_csv('../output2_MAGGene_counts.csv')
 
-
-
+'''
 ###########Creating a MAG and Genes list#################
 
 list_mag = list(df.iloc[:,0])
@@ -193,7 +198,7 @@ for uniq_mag in list_uniqmag:
     
     
     
-'''
+
     print(ele)
     temp_listele = ele
     if ele == 

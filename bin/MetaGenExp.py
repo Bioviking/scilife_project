@@ -10,8 +10,10 @@ from math import log, sqrt
 
 import numpy as np
 import pandas as pd
-from six.moves import cStringIO as StringIO
+import seaborn as sns
 import matplotlib.pyplot as plt
+from six.moves import cStringIO as StringIO
+
 from bokeh.plotting import figure, show, output_file
 
 file3 = '../data/ryno_project/LMO_time_series_Metadata_to_Barbel_mod.txt'
@@ -60,11 +62,14 @@ df = pd.read_table(file3, parse_dates=[[2, 3, 4]],index_col='Year_Month_Day' ) #
 print(df.info())
 
 
+
 ###################################Full Dataset###############
 #Removing the redunant Date column as it is not the correct format
 df1 = df.iloc[:,2::]
-print(df1.head())
+print(df1.head(50))
 print(df1.info())
+
+
 
 #Parsing on the Date column. Some of the dates have the wrong format
 #df1 = df.iloc[:,4::]
@@ -76,34 +81,28 @@ plt.clf()
 '''
 
 
+
+
+
 ####################################TEMPERATURE###################
 #Resampled and using the Year_Month_Day column
 df1['Temperature'].resample('2M').mean().plot()
-plt.xlabel('Year_Month_Day')
+plt.title('Temperature vs Time')
+plt.xlabel('Time (Year_Month_Day)')
 plt.ylabel('Temperature (C)')
+plt.tight_layout()
+plt.savefig('../results/plots/2017-08-16/temperatureplot01.png')
 plt.show()
 plt.clf()
 
-'''
-#Old DAte colum and not resampled
-temp_df = df1.iloc[:,0]
-print(temp_df)
-plt.xlabel('Date')
-plt.ylabel('Temperature (Degrees C)')
-
-temp_df.plot()
-
-
-plt.show()
-plt.clf()
-'''
 
 ###################################Salinity#######################
 ##month period with NaN from 2011-07 to 2011-10-05
-#No salinity records for 2012-02, 2013-03, 
+#No salinity records for 2012-02, 2013-03,
 
 #print(df1['Salinity'].info())
 #print(df1['Salinity'].head())
+
 ################Display missing Data
 #df1['Salinity'].loc['2011-04': '2011-10'].plot()
 #df1['Salinity'].loc['2012-04': '2012-10'].plot()
@@ -111,13 +110,35 @@ plt.clf()
 #plt.show()
 #plt.clf()
 
-print(df1['Salinity'].resample('2W').mean().ffill())
-df1['Salinity'].resample('2W').mean().ffill().plot()
+salty_time= df1['Salinity']['2011-03-25':'2014-08-20']
+print(salty_time)
+
+salty_timeb= salty_time.resample('W').mean().interpolate(how='linear')
+twoweeks_max= salty_timeb.resample('M').mean().interpolate(how='linear')
+print(twoweeks_max)
+sm_twoweekff= twoweeks_max.rolling(window=1).mean()
+sm_twoweekff.plot()
+
+plt.title('Salinity vs Time - Forwardfill of gaps')
+plt.xlabel('Time (Year_Month_Day)')
+plt.ylabel('Salinity')
+plt.tight_layout()
+plt.savefig('../results/plots/2017-08-16/salinityplot01A.png')
 plt.show()
 plt.clf()
 
-print(df1['Salinity'].resample('2W').mean().bfill())
-df1['Salinity'].resample('2W').mean().bfill().plot()
+
+
+untwoweeks_max = salty_time.resample('2W').max()
+print(untwoweeks_max)
+sm_twoweeksbf= untwoweeks_max.rolling(window=1).mean().bfill()
+sm_twoweeksbf.plot()
+
+plt.title('Salinity vs Time - Backfill of gaps ')
+plt.xlabel('Time (Year_Month_Day)')
+plt.ylabel('Salinity')
+plt.tight_layout()
+plt.savefig('../results/plots/2017-08-16/salinityplot01B.png')
 plt.show()
 plt.clf()
 '''
@@ -126,7 +147,10 @@ plt.ylabel('Salinity')
 plt.show()
 plt.clf()
 '''
+
+
 '''
+######################Radial plot continued
 
 width = 800
 height = 800

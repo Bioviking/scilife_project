@@ -97,7 +97,7 @@ def count_entries(new_df, col_name):
 
 #Define addMAGGene
 def addMAGGene(new_df, dict_of_col):
-    """Return a datafram with the addition of the Column
+    """Return a dataframe with the addition of the Column
     with the combined MAG and Gene label"""
     #print(type(dict_of_col))
     add_df = pd.Series(dict_of_col)
@@ -126,6 +126,8 @@ def create_array(info_in):
         
 #######################USER INPUT###############################
 file = '../P3764_P1456.LMO.indiv.MAGs.merged.raw_counts.tsv' #input('Please enter the file name:')
+
+
 #INPUT OPTIONS
 #col_name = str(input('Please enter the column name:'))
 col_name = 'MAG'
@@ -149,6 +151,11 @@ dict_MAGGene = concat_col(df, col_name1, col_name2)
 
 ## Call addMAGGene(): new_df
 new_df = addMAGGene(df, dict_MAGGene)
+print(new_df.head())
+#Get clusterid, MAGGene_label MAG and Gene in one file 
+
+
+#Link the MAGGene_label to the idfiles
 
 #############################################ROUGH#############
 '''
@@ -183,10 +190,16 @@ MAG_count = dict(zipped)
 MAG_df = pd.DataFrame(MAG_count, columns = ['MAG', 'Counts'])
 print(MAG_df)
 
+
+
 y ='Counts'
 MAG_df.hist(y, bins=83)
-plt.xlabel('Genes per a MAG')
+
+plt.ylabel('No of MAGS in bin')
+plt.xlabel('No of Genes express')
 plt.title('Histogram of Gene')
+plt.tight_layout()
+plt.savefig('../../../results/plots/2017-08-16/Hist_geneexp.png')
 plt.show()
 
 ##################################################################3
@@ -197,6 +210,7 @@ plt.show()
 
 #Gene_result = count_entries(new_df, col_name2)
 #Gene
+
 #Creating a numpy array for plotting
 #list_gene_values= [i for i in count_result.values()]
 #np_x = np.array(list_gene_values)
