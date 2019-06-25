@@ -15,3 +15,15 @@ The goal of this internship was for me to improve my coding skill and my bioinfo
 
 
 
+
+## Project Aim:
+
+In this project: gene expression data will be analysed from surface water samples collected at different time points during three years (2012-2014) at an offshore station east of Öland (Station LMO) in the Baltic Sea.
+
+Goals: The dataset may potentially give insights into:
+
+    how gene expression in the different populations change with environmental conditions,
+    how functional activities varies between taxonomic groups.
+    compare expression levels at the transcript and protein level in bacteria in nature.
+
+
