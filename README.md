@@ -2,12 +2,12 @@
 title:  "Scilifelab Summer Project 2017"
 date:   2017-09-30 10:28:55 +0200
 permalink: /scilife_summer_project/
-tags: [bioinformatics, python, metatranscriptomics, bacteria]
-categories: repository projects
-header:
+#tags: [bioinformatics, python, metatranscriptomics, bacteria]
+#categories: repository projects
+#header:
    #image: "/images/project/projectimage.jpg"
-   excerpt: "Coding, Summer Project, Bioinformatics"
-   mathjax: "true"
+   #excerpt: "Coding, Summer Project, Bioinformatics"
+   #mathjax: "true"
 ---
 
 # Scilifelab Summer Project
