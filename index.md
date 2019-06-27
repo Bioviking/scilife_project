@@ -1,35 +1,19 @@
-## Portfolio
 
----
-
-### Category Name 1 
-
-[Project 1 Title](/sample_page)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
-[Project 2 Title](/pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
-[Project 3 Title](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
-
-### Category Name 2
-
-- [Project 1 Title](http://example.com/)
-- [Project 2 Title](http://example.com/)
-- [Project 3 Title](http://example.com/)
-- [Project 4 Title](http://example.com/)
-- [Project 5 Title](http://example.com/)
-
----
+# Scilifelab Summer Project
+During the summer of 2017, I took the opportunity to join the KTH's Environmental Genomics group, lead by Anders Andersson, from a bioinformatics project. Know as the Envgen group, they are stations at the biotech research hub Science for Life Laboratory in Stockholm, Sweden.
+The goal of this internship was for me to improve my coding skill and my bioinformatic skill
 
 
 
 
----
-<p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
-<!-- Remove above link if you don't want to attibute -->
+## Project Aim:
+
+In this project: gene expression data will be analysed from surface water samples collected at different time points during three years (2012-2014) at an offshore station east of Öland (Station LMO) in the Baltic Sea.
+
+Goals: The dataset may potentially give insights into:
+
+    - how gene expression in the different populations change with environmental conditions,
+    - how functional activities varies between taxonomic groups.
+    - compare expression levels at the transcript and protein level in bacteria in nature.
+
+
